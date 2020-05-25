@@ -5,13 +5,10 @@
 </head>
 <body>
 <h1>
-@if($category == 'phones')
-    Мобильные телефоны
-@elseif($category == 'headphones')
-    Наушники
-@elseif($category == 'tablets')
-    Планшеты
-@endif
+    {{$category -> name}}
 </h1>
+<p>
+    {{$category -> description}}
+</p>
 </body>
 </html>

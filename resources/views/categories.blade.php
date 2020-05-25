@@ -6,15 +6,9 @@
 <body>
 <h1>Категории</h1>
 <ul>
-    <li>
-        <a href="/phones">Phones</a>
-    </li>
-    <li>
-        <a href="/tablets">Tablets</a>
-    </li>
-    <li>
-        <a href="/headphones">Headphones</a>
-    </li>
+@foreach($categories as $category)
+    <li><a href="/{{$category->code}}"><b>{{$category->name}}</b><br><p>{{$category->description}}</p></a></li>
+@endforeach
 </ul>
 </body>
 </html>
