@@ -9,5 +9,5 @@
     <p>
         {{$category -> description}}
     </p>
-    @include('card')
+    @include('card', ['category' => $category])
 @endsection
