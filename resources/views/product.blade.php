@@ -1,9 +1,5 @@
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>Shop</title>
-</head>
-<body>
+@extends('master')
+@section('title', 'Продукт')
+@section('content')
 <h1>Продукт {{ $product }}</h1>
-</body>
-</html>
+@endsection

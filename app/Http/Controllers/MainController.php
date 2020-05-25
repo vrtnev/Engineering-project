@@ -19,7 +19,6 @@ class MainController extends Controller
         return view('category', compact('category'));
     }
     public function product($product = null) {
-        dump($product);
         return view('product', ['product' => $product]);
     }
 }

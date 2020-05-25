@@ -1,9 +1,8 @@
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Shop</title>
-    </head>
-    <body>
+@extends('master')
+
+    @section('title', 'Главная страница')
+
+    @section('content')
         <h1>Shop by vrtnev</h1>
-    </body>
-</html>
+        @include('card')
+    @endsection
