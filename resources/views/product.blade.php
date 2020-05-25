@@ -4,6 +4,6 @@
     <title>Shop</title>
 </head>
 <body>
-<h1>Продукт</h1>
+<h1>Продукт {{ $product }}</h1>
 </body>
 </html>
