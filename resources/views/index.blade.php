@@ -4,5 +4,7 @@
 
     @section('content')
         <h1>Shop by vrtnev</h1>
-        @include('card')
+        @foreach($products as $product)
+            @include('card', compact('product'))
+        @endforeach
     @endsection

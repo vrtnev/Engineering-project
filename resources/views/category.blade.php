@@ -4,10 +4,12 @@
 
 @section('content')
     <h1>
-        {{$category -> name}}
+        {{$category -> name}} {{ $category->products->count() }}
     </h1>
     <p>
         {{$category -> description}}
     </p>
-    @include('card', ['category' => $category])
+    @foreach($category->products as $product)
+        @include('card', compact('product'))
+    @endforeach
 @endsection
