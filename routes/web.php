@@ -20,5 +20,7 @@ Route::get('/{category}', 'MainController@category')->name('category');
 
 Route::get('/{category}/{product?}', 'MainController@product')->name('product');
 
-Route::get('/cart', 'MainController@cart')->name('cart');
-Route::get('/cart/order', 'MainController@order')->name('order');
+Route::get('/cart', 'CartController@cart')->name('cart');
+Route::get('/cart/order', 'CartController@order')->name('order');
+
+Route::post('cart/add/{id}', 'CartController@CartAdd')->name('cart-add');
