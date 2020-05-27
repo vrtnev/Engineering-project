@@ -16,11 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'MainController@index')->name('index');
 
 Route::get('/categories', 'MainController@categories')->name('categories');
+
+
+Route::get('/cart', 'CartController@cart')->name('cart');
+Route::get('/cart/order', 'CartController@order')->name('order');
+Route::post('cart/add/{id}', 'CartController@CartAdd')->name('cart-add');
+
 Route::get('/{category}', 'MainController@category')->name('category');
 
 Route::get('/{category}/{product?}', 'MainController@product')->name('product');
 
-Route::get('/cart', 'CartController@cart')->name('cart');
-Route::get('/cart/order', 'CartController@order')->name('order');
-
-Route::post('cart/add/{id}', 'CartController@CartAdd')->name('cart-add');
