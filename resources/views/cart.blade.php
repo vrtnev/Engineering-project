@@ -10,7 +10,10 @@
         <p>{{ $product->price }} руб.</p>
         <form action="{{ route('cart-add', $product) }}" method="post">
             <button type="submit">+</button>
-            <a href="">-</a>
+            @csrf
+        </form>
+        <form action="{{ route('cart-remove', $product) }}" method="post">
+            <button type="submit">-</button>
             @csrf
         </form>
     </div>

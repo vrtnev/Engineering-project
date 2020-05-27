@@ -21,6 +21,7 @@ Route::get('/categories', 'MainController@categories')->name('categories');
 Route::get('/cart', 'CartController@cart')->name('cart');
 Route::get('/cart/order', 'CartController@order')->name('order');
 Route::post('cart/add/{id}', 'CartController@CartAdd')->name('cart-add');
+Route::post('cart/remove/{id}', 'CartController@CartRemove')->name('cart-remove');
 
 Route::get('/{category}', 'MainController@category')->name('category');
 
