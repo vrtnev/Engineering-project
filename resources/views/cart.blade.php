@@ -8,6 +8,7 @@
             <p><b>{{ $product->name }}</b></p>
         </a>
         <p>{{ $product->price }} руб.</p>
+        <p>Количество: {{ $product->pivot->count }}</p>
         <form action="{{ route('cart-add', $product) }}" method="post">
             <button type="submit">+</button>
             @csrf
@@ -18,4 +19,5 @@
         </form>
     </div>
     @endforeach
+    <a href="{{ route('order') }}">Оформить заказ</a>
 @endsection
