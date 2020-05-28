@@ -1,4 +1,4 @@
-@extends('master')
+@extends('layouts.master')
 
 @section('title', 'Категория ' . $category -> name)
 
@@ -10,6 +10,6 @@
         {{$category -> description}}
     </p>
     @foreach($category->products as $product)
-        @include('card', compact('product'))
+        @include('layouts.card', compact('product'))
     @endforeach
 @endsection

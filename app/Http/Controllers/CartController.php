@@ -16,9 +16,8 @@ class CartController extends Controller
         return view('cart', compact('order'));
     }
 
-    public function cartConfirm()
-    {
-        
+    public function cartConfirm() {
+
     }
 
     public function order()
@@ -35,7 +34,7 @@ class CartController extends Controller
     {
         $orderId = session('orderId');
         if (is_null($orderId)) {
-            $order = Order::create()->id;
+            $order = Order::create();
             session(['orderId'=> $order->id]);
         } else {
             $order = Order::find($orderId);

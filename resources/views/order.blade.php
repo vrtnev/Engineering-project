@@ -1,4 +1,4 @@
-@extends('master')
+@extends('layouts.master')
 @section('title', 'Оформление заказа')
 @section('content')
     <h1>Оформление заказа</h1>
