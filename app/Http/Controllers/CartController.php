@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Order;
+use App\Product;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -22,8 +23,12 @@ class CartController extends Controller
             return redirect()->route('index');
         }
         $order = Order::find($orderId);
-        $result = $order->saveOrder($request->name, $request->phone);
-
+        $success = $order->saveOrder($request->name, $request->phone);
+        if ($success) {
+            session()->flash('success', 'Ваш заказ принят в обработку!');
+        } else {
+            session()->flash('warning', 'Произошла ошибка');
+        }
         return redirect()->route('index');
     }
 
@@ -53,6 +58,8 @@ class CartController extends Controller
         } else {
             $order->products()->attach($productId);
         }
+        $product = Product::find($productId);
+        session()->flash('success', 'Товар ' . $product->name . ' добавлен в корзину');
         return redirect()->route('cart');
     }
 
@@ -64,6 +71,8 @@ class CartController extends Controller
         }
         $order = Order::find($orderId);
         $order->products()->detach($productId);
+        $product = Product::find($productId);
+        session()->flash('warning', 'Товар ' . $product->name . ' удалён из корзины');
         return redirect()->route('cart');
     }
 }

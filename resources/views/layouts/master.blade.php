@@ -11,6 +11,12 @@
         <a href="{{route('order')}}">Оформить заказ</a>
     </header>
     <main>
+        @if(session()->has('success'))
+            <p><b>{{ session()->get('success') }}</b></p>
+        @endif
+        @if(session()->has('warning'))
+            <p><b>{{ session()->get('warning') }}</b></p>
+        @endif
         @yield('content')
     </main>
 </body>
