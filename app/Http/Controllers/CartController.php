@@ -70,7 +70,14 @@ class CartController extends Controller
             return redirect()->route('cart');
         }
         $order = Order::find($orderId);
-        $order->products()->detach($productId);
+
+        if ($order->products->contains($productId)) {
+            $pivotRow = $order->products()->where('product_id', $productId)->first()->pivot;
+            $pivotRow->count--;
+            $pivotRow->update();
+        } else {
+            $order->products()->detach($productId);
+        }
         $product = Product::find($productId);
         session()->flash('warning', 'Товар ' . $product->name . ' удалён из корзины');
         return redirect()->route('cart');
