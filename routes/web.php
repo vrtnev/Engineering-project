@@ -12,6 +12,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/logout', 'Auth\LoginController@logout')->name('get-logout');
 
 Route::get('/', 'MainController@index')->name('index');
 
@@ -27,4 +31,3 @@ Route::post('/cart/confirm', 'CartController@CartConfirm')->name('cart-confirm')
 Route::get('/{category}', 'MainController@category')->name('category');
 
 Route::get('/{category}/{product?}', 'MainController@product')->name('product');
-
