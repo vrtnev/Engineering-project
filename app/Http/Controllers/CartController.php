@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Order;
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
@@ -13,6 +14,8 @@ class CartController extends Controller
         $orderId = session('orderId');
         if (!is_null($orderId)) {
             $order = Order::findOrFail($orderId);
+        } else {
+            $order = new Order();
         }
         return view('cart', compact('order'));
     }
@@ -48,6 +51,7 @@ class CartController extends Controller
         if (is_null($orderId)) {
             $order = Order::create();
             session(['orderId'=> $order->id]);
+
         } else {
             $order = Order::find($orderId);
         }
@@ -58,6 +62,12 @@ class CartController extends Controller
         } else {
             $order->products()->attach($productId);
         }
+
+        if (Auth::check()) {
+            $order->user_id = Auth::id();
+            $order->save();
+        }
+
         $product = Product::find($productId);
         session()->flash('success', 'Товар ' . $product->name . ' добавлен в корзину');
         return redirect()->route('cart');
@@ -73,11 +83,14 @@ class CartController extends Controller
 
         if ($order->products->contains($productId)) {
             $pivotRow = $order->products()->where('product_id', $productId)->first()->pivot;
-            $pivotRow->count--;
-            $pivotRow->update();
-        } else {
-            $order->products()->detach($productId);
+            if ($pivotRow->count < 2) {
+                $order->products()->detach($productId);
+            } else {
+                $pivotRow->count--;
+                $pivotRow->update();
+            }
         }
+
         $product = Product::find($productId);
         session()->flash('warning', 'Товар ' . $product->name . ' удалён из корзины');
         return redirect()->route('cart');
