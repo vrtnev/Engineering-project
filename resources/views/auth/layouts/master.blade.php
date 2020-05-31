@@ -1,10 +1,6 @@
-<html>
-    <head>
-        <meta charset="utf-8">
-    </head>
-<body>
+@extends('layouts.master')
+@section('content')
 <h1>Панель админа</h1>
 @yield('title')
 @yield('content')
-</body>
-</html>
+@endsection

@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes();
 
-Route::get('/orders', 'OrderController@index')->name('home');
+Route::get('/orders', 'Admin\OrderController@index')->name('home');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/logout', 'Auth\LoginController@logout')->name('get-logout');

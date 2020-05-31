@@ -6,9 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-    public function products() {
+    public function products()
+    {
         return $this->belongsToMany(Product::class)->withPivot('count')->withTimestamps();
     }
+
+//    public function user()
+//    {
+//        return $this->belongsTo(User::class);
+//    }
+
     public function getFullPrice()
     {
         $sum = 0;
@@ -17,6 +24,7 @@ class Order extends Model
         }
         return $sum;
     }
+
     public function saveOrder($name, $phone)
     {
         if ($this->status == 0) {
