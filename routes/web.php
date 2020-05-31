@@ -14,10 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes();
 
-Route::get('/orders', 'Admin\OrderController@index')->name('home');
-
-Route::group(['middleware' => 'auth'], function () {
-    Route::get('/logout', 'Auth\LoginController@logout')->name('get-logout');
+Route::get('/logout', 'Auth\LoginController@logout')->name('get-logout');
+Route::group([
+    'middleware' => 'auth',
+    'namespace' => 'Admin'
+], function () {
+    Route::group(['middleware' => 'is_admin'], function () {
+        Route::get('/orders', 'OrderController@index')->name('home');
+    });
 });
 
 Route::get('/', 'MainController@index')->name('index');
