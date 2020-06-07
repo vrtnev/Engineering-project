@@ -1,9 +1,38 @@
 @extends('auth.layouts.master')
-@section('title', 'Добавить категорию')
+
+@isset($category)
+    @section('title', 'Редактировать категорию' . $category->name)
+@else
+    @section('title', 'Добавить категорию')
+@endisset
+
 @section('content')
-    <h1>Добавление категории</h1>
-    <form method="post" action="{{ route('categories.store') }}">
+    @isset($category)
+        <h1>Редактирование категории {{ $category->name }}</h1>
+    @else
+        <h1>Добавление категории</h1>
+    @endisset
+
+    <form method="post"
+          @isset($category)
+          action="{{ route('categories.update', $category) }}"
+          @else
+          action="{{ route('categories.store') }}"
+        @endisset
+    >
+        @isset($category)
+            @method('PUT')
+        @endisset
         @csrf
+        <p>Код:<input
+                type="text"
+                value="@isset($category) {{ $category->code }} @endisset"></p>
+        <p>Название:<input
+                type="text"
+                value="@isset($category) {{ $category->name }} @endisset"></p>
+        <p>Описание:<input
+                type="text"
+                value="@isset($category) {{ $category->description }} @endisset"></p>
         <button type="submit">Добавить</button>
     </form>
 @endsection
