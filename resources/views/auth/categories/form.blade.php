@@ -26,13 +26,16 @@
         @csrf
         <p>Код:<input
                 type="text"
-                value="@isset($category) {{ $category->code }} @endisset"></p>
+                name="code"
+                value="@isset($category){{ $category->code }}@endisset"></p>
         <p>Название:<input
                 type="text"
-                value="@isset($category) {{ $category->name }} @endisset"></p>
+                name="name"
+                value="@isset($category){{ $category->name }}@endisset"></p>
         <p>Описание:<input
                 type="text"
-                value="@isset($category) {{ $category->description }} @endisset"></p>
+                name="description"
+                value="@isset($category){{ $category->description }}@endisset"></p>
         <button type="submit">Добавить</button>
     </form>
 @endsection
