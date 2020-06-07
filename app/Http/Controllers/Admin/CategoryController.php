@@ -26,7 +26,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('auth.categories.form');
     }
 
     /**
@@ -37,7 +37,8 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Category::create($request->all());
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -48,7 +49,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        return view('auth.categories.show', compact('category'));
     }
 
     /**
