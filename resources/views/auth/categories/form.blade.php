@@ -13,7 +13,7 @@
         <h1>Добавление категории</h1>
     @endisset
 
-    <form method="post"
+    <form method="post" enctype="multipart/form-data"
           @isset($category)
           action="{{ route('categories.update', $category) }}"
           @else
@@ -36,6 +36,9 @@
                 type="text"
                 name="description"
                 value="@isset($category){{ $category->description }}@endisset"></p>
+        <p>Картинка:
+            <input type="file" name="image" id="image">
+        </p>
         <button type="submit">Добавить</button>
     </form>
 @endsection

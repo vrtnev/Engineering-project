@@ -36,6 +36,20 @@
                 type="text"
                 name="description"
                 value="@isset($product){{ $product->description }}@endisset"></p>
+        <p>Категория:
+            <select name="category_id" class="form-control">
+                @foreach($categories as $category)
+                    <option value="{{ $category->id }} "
+                        @isset($product)
+                            @if($product->category_id == $category->id)
+                            selected
+                            @endif
+                        @endisset
+                    >{{ $category->name }}
+                    </option>
+                @endforeach
+            </select>
+        </p>
         <button type="submit">Добавить</button>
     </form>
 @endsection
