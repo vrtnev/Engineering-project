@@ -71,6 +71,7 @@
         </a>
         <a class="py-2 d-none d-md-inline-block" href="{{route('index')}}">Вернуться на сайт</a>
         <a class="py-2 d-none d-md-inline-block" href="{{route('categories.index')}}">Категории</a>
+        <a class="py-2 d-none d-md-inline-block" href="{{route('products.index')}}">Товары</a>
         @guest()
             <a class="py-2 d-none d-md-inline-block" href="{{route('login')}}">Войти</a>
             <a class="py-2 d-none d-md-inline-block" href="{{route('register')}}">Регистрация</a>

@@ -25,6 +25,8 @@ Route::group([
     });
 
     Route::resource('categories', 'CategoryController');
+
+    Route::resource('products', 'ProductController');
 });
 
 Route::get('/', 'MainController@index')->name('index');
