@@ -9,6 +9,7 @@
         <li><a href="{{ route('products.show', $product) }}">
                 {{ $product->id }} {{ $product->code }} {{ $product->name }}</a>
             <a href="{{ route('products.edit', $product) }}">Редактировать</a></li>
+    <p>Картинка: <img src="{{ Storage::url($product->image) }}"></p>
         <form method="post" action="{{ route('products.destroy', $product) }}">
             @method('DELETE')
             @csrf

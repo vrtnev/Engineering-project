@@ -6,6 +6,7 @@
     <div>
         <a href="{{ route('product', [$product->category->code, $product->code]) }}">
             <p><b>{{ $product->name }}</b></p>
+            <img src="{{ Storage::url($product->image) }}">
         </a>
         <p>{{ $product->price }} руб.</p>
         <p>Количество: {{ $product->pivot->count }}</p>

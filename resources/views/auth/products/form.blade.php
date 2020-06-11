@@ -13,7 +13,7 @@
         <h1>Добавление товара</h1>
     @endisset
 
-    <form method="post"
+    <form method="post" enctype="multipart/form-data"
           @isset($product)
           action="{{ route('products.update', $product) }}"
           @else
@@ -49,6 +49,9 @@
                     </option>
                 @endforeach
             </select>
+        </p>
+        <p>Картинка:
+            <input type="file" name="image" id="image">
         </p>
         <button type="submit">Добавить</button>
     </form>

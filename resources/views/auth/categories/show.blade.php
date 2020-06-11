@@ -7,4 +7,5 @@
     <p>Название: {{ $category->name }}</p>
     <p>Описание: {{ $category->description }}</p>
     <p>Количество товаров: {{ $category->products->count() }}</p>
+    <p>Картинка: <img src="{{ Storage::url($category->image) }}"></p>
 @endsection

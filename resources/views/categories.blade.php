@@ -13,7 +13,7 @@
                             <h2 class="display-5">{{$category->name}}</h2>
                             <p class="lead">{{$category->description}}</p>
                         </div>
-                        <div class="bg-light shadow-sm mx-auto" style="background-image: url('https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-se-family-select-2020?wid=882&amp;hei=1058&amp;fmt=jpeg&amp;qlt=80&amp;op_usm=0.5,0.5&amp;.v=1586794486444'); background-repeat: no-repeat; background-position: center; background-size: auto 100%; width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+                        <div class="bg-light shadow-sm mx-auto" style="background-image: url('{{ Storage::url($category->image) }}'); background-repeat: no-repeat; background-position: center; background-size: auto 100%; width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
                     </a>
 
                     @if($loop->remaining == 0)
@@ -26,7 +26,7 @@
                         <h2 class="display-5">{{$category->name}}</h2>
                         <p class="lead">{{$category->description}}</p>
                     </div>
-                    <div class="bg-light shadow-sm mx-auto" style="background-image: url('https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-se-family-select-2020?wid=882&amp;hei=1058&amp;fmt=jpeg&amp;qlt=80&amp;op_usm=0.5,0.5&amp;.v=1586794486444'); background-repeat: no-repeat; background-position: center; background-size: auto 100%; width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+                    <div class="bg-light shadow-sm mx-auto" style="background-image: url('{{ Storage::url($category->image) }}'); background-repeat: no-repeat; background-position: center; background-size: auto 100%; width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
                 </a>
                 </div>
             @endif
