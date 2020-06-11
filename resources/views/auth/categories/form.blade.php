@@ -24,15 +24,27 @@
             @method('PUT')
         @endisset
         @csrf
-        <p>Код:<input
+        <p>Код:
+            @error('code')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+            <input
                 type="text"
                 name="code"
                 value="@isset($category){{ $category->code }}@endisset"></p>
-        <p>Название:<input
+        <p>Название:
+            @error('name')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+            <input
                 type="text"
                 name="name"
                 value="@isset($category){{ $category->name }}@endisset"></p>
-        <p>Описание:<input
+        <p>Описание:
+            @error('description')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+            <input
                 type="text"
                 name="description"
                 value="@isset($category){{ $category->description }}@endisset"></p>
