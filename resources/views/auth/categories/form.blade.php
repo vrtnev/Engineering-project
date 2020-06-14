@@ -31,7 +31,7 @@
             <input
                 type="text"
                 name="code"
-                value="@isset($category){{ $category->code }}@endisset"></p>
+                value="{{ old('code', isset($category) ? $category->code : null) }}"></p>
         <p>Название:
             @error('name')
                 <div class="alert alert-danger">{{ $message }}</div>
@@ -51,6 +51,12 @@
         <p>Картинка:
             <input type="file" name="image" id="image">
         </p>
-        <button type="submit">Добавить</button>
+        <button type="submit">
+            @isset($category)
+                Изменить
+            @else
+                Добавить
+            @endisset
+        </button>
     </form>
 @endsection

@@ -89,8 +89,6 @@ class CategoryController extends Controller
             $params['image'] = $path;
         }
 
-        Category::create($params);
-
         $category->update($params);
         return redirect()->route('categories.index');
     }
