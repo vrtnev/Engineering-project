@@ -56,6 +56,7 @@
     </style>
     <!-- Custom styles for this template -->
     <link href="https://getbootstrap.com/docs/4.5/examples/product/product.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
 </head>
 <body>
 <nav class="site-header sticky-top py-1">
@@ -70,9 +71,9 @@
             </svg>
         </a>
         <a class="py-2 d-none d-md-inline-block" href="{{route('index')}}">Вернуться на сайт</a>
-        <a class="py-2 d-none d-md-inline-block" @if(Route::CurrentRouteNamed('home')) style="color: #fff;" @endif href="{{route('home')}}">Заказы</a>
-        <a class="py-2 d-none d-md-inline-block" @if(Route::CurrentRouteNamed('categories.index')) style="color: #fff;" @endif href="{{route('categories.index')}}">Категории</a>
-        <a class="py-2 d-none d-md-inline-block" @if(Route::CurrentRouteNamed('products.index')) style="color: #fff;" @endif href="{{route('products.index')}}">Товары</a>
+        <a class="py-2 d-none d-md-inline-block @routeactive('home') " href="{{route('home')}}">Заказы</a>
+        <a class="py-2 d-none d-md-inline-block @routeactive('categories.index')" href="{{route('categories.index')}}">Категории</a>
+        <a class="py-2 d-none d-md-inline-block @routeactive('products.index') " href="{{route('products.index')}}">Товары</a>
         @guest()
             <a class="py-2 d-none d-md-inline-block" href="{{route('login')}}">Войти</a>
             <a class="py-2 d-none d-md-inline-block" href="{{route('register')}}">Регистрация</a>

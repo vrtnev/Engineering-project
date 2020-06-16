@@ -47,6 +47,7 @@
     </style>
     <!-- Custom styles for this template -->
     <link href="https://getbootstrap.com/docs/4.5/examples/product/product.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
 </head>
 <body>
 <nav class="site-header sticky-top py-1">
@@ -60,13 +61,13 @@
                     d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/>
             </svg>
         </a>
-        <a class="py-2 d-none d-md-inline-block" @if(Route::CurrentRouteNamed('index')) style="color: #fff;" @endif href="{{route('index')}}">Главная</a>
-        <a class="py-2 d-none d-md-inline-block" @if(Route::CurrentRouteNamed('categor*')) style="color: #fff;" @endif href="{{route('categories')}}">Категории</a>
-        <a class="py-2 d-none d-md-inline-block" @if(Route::CurrentRouteNamed('cart')) style="color: #fff;" @endif href="{{route('cart')}}">Корзина</a>
-        <a class="py-2 d-none d-md-inline-block" @if(Route::CurrentRouteNamed('order')) style="color: #fff;" @endif href="{{route('order')}}">Оформить заказ</a>
+        <a class="py-2 d-none d-md-inline-block @routeactive('index') " href="{{route('index')}}">Главная</a>
+        <a class="py-2 d-none d-md-inline-block @routeactive('categor*') " href="{{route('categories')}}">Категории</a>
+        <a class="py-2 d-none d-md-inline-block @routeactive('cart*') " href="{{route('cart')}}">Корзина</a>
+        <a class="py-2 d-none d-md-inline-block @routeactive('order') " href="{{route('order')}}">Оформить заказ</a>
         @guest()
-            <a class="py-2 d-none d-md-inline-block" @if(Route::CurrentRouteNamed('login')) style="color: #fff;" @endif href="{{route('login')}}">Войти</a>
-            <a class="py-2 d-none d-md-inline-block" @if(Route::CurrentRouteNamed('register')) style="color: #fff;" @endif href="{{route('register')}}">Регистрация</a>
+            <a class="py-2 d-none d-md-inline-block @routeactive('login') " href="{{route('login')}}">Войти</a>
+            <a class="py-2 d-none d-md-inline-block @routeactive('register') " href="{{route('register')}}">Регистрация</a>
         @endguest
         @auth()
             <a class="py-2 d-none d-md-inline-block" href="{{route('home')}}">Панель администратора</a>
