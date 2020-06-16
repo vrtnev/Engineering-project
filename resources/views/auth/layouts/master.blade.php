@@ -70,8 +70,9 @@
             </svg>
         </a>
         <a class="py-2 d-none d-md-inline-block" href="{{route('index')}}">Вернуться на сайт</a>
-        <a class="py-2 d-none d-md-inline-block" href="{{route('categories.index')}}">Категории</a>
-        <a class="py-2 d-none d-md-inline-block" href="{{route('products.index')}}">Товары</a>
+        <a class="py-2 d-none d-md-inline-block" @if(Route::CurrentRouteNamed('home')) style="color: #fff;" @endif href="{{route('home')}}">Заказы</a>
+        <a class="py-2 d-none d-md-inline-block" @if(Route::CurrentRouteNamed('categories.index')) style="color: #fff;" @endif href="{{route('categories.index')}}">Категории</a>
+        <a class="py-2 d-none d-md-inline-block" @if(Route::CurrentRouteNamed('products.index')) style="color: #fff;" @endif href="{{route('products.index')}}">Товары</a>
         @guest()
             <a class="py-2 d-none d-md-inline-block" href="{{route('login')}}">Войти</a>
             <a class="py-2 d-none d-md-inline-block" href="{{route('register')}}">Регистрация</a>
