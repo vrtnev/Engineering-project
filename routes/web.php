@@ -16,6 +16,9 @@ Auth::routes();
 
 Route::get('/logout', 'Auth\LoginController@logout')->name('get-logout');
 
+Route::get('login/github', 'Auth\LoginController@redirectToProvider');
+Route::get('login/github/callback', 'Auth\LoginController@handleProviderCallback');
+
 Route::middleware(['auth'])->group(function () {
     Route::group([
         'prefix' => 'person',

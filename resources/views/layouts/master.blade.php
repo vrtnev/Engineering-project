@@ -70,11 +70,11 @@
             <a class="py-2 d-none d-md-inline-block @routeactive('register') " href="{{route('register')}}">Регистрация</a>
         @endguest
         @auth()
-            @if(Auth::user()->isAdmin())
+            @admin
                 <a class="py-2 d-none d-md-inline-block" href="{{route('home')}}">Панель администратора</a>
             @else
                 <a class="py-2 d-none d-md-inline-block" href="{{route('person.orders.index')}}">Мои заказы</a>
-            @endif
+            @endadmin
             <a class="py-2 d-none d-md-inline-block" href="{{route('get-logout')}}">Выйти</a>
         @endauth
     </div>

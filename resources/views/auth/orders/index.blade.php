@@ -25,11 +25,11 @@
 {{--                    action="{{ route('orders.destroy', $order) }}"--}}
                     <a
                         href="
-                            @if(Auth::user()->isAdmin())
+                            @admin
                             {{ route('orders.show', $order) }}
                             @else
                             {{ route('person.orders.show', $order) }}
-                            @endif
+                            @endadmin
                             "
                         class="btn btn-primary">Просмотреть
                     </a>
