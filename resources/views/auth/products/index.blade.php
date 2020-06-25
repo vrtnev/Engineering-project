@@ -35,4 +35,5 @@
         @endforeach
         </tbody>
     </table>
+    <a href="{{ route('products.create') }}" class="btn btn-success">Добавить</a>
 @endsection

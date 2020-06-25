@@ -73,8 +73,9 @@
         <a class="py-2 d-none d-md-inline-block" href="{{route('index')}}">Вернуться на сайт</a>
         @admin
         <a class="py-2 d-none d-md-inline-block @routeactive('home') " href="{{route('home')}}">Заказы</a>
-            <a class="py-2 d-none d-md-inline-block @routeactive('categories.index')" href="{{route('categories.index')}}">Категории</a>
-            <a class="py-2 d-none d-md-inline-block @routeactive('products.index') " href="{{route('products.index')}}">Товары</a>
+        <a class="py-2 d-none d-md-inline-block @routeactive('categories.index')" href="{{route('categories.index')}}">Категории</a>
+        <a class="py-2 d-none d-md-inline-block @routeactive('products.index') " href="{{route('products.index')}}">Товары</a>
+        <a class="py-2 d-none d-md-inline-block" href="{{route('reset')}}">Сбросить магазин в начальное состояние</a>
         @endadmin
         <a class="py-2 d-none d-md-inline-block @routeactive('person.orders.index') " href="{{route('person.orders.index')}}">Заказы</a>
         @guest()

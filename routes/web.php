@@ -58,6 +58,8 @@ Route::group(['prefix' => 'cart'], function () {
     });
 });
 
+Route::get('reset', 'ResetController@reset')->name('reset');
+
 Route::get('/{category}', 'MainController@category')->name('category');
 
 Route::get('/{category}/{product?}', 'MainController@product')->name('product');
