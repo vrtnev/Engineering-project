@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
@@ -60,6 +61,16 @@ class LoginController extends Controller
     {
         $user = Socialite::driver('github')->user();
 
-        dd($user->token);
+        $currentUser = User::where('email', $user->email)->first();
+        if (!$currentUser) {
+            $currentUser = User::create([
+                'name' => $user->name,
+                'email' => $user->email]
+            );
+        }
+
+        Auth::login($currentUser, true);
+
+        return redirect()->route('index');
     }
 }
